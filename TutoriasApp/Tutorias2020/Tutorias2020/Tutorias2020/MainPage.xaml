@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Tutorias2020"
+             x:Class="Tutorias2020.MainPage"
+             BackgroundColor="White">
+
+    <ScrollView IsEnabled="False">
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <!--Header Background-->
+            <Image Source="mm.jpg" Aspect="AspectFill"/>
+            <Image Source="CurvedMask.png" VerticalOptions="EndAndExpand" Aspect="Fill"/>
+            
+            <!--Search Section-->
+            <StackLayout Grid.Row="1" Padding="0,50,0,0">
+                <Label Text="Universidad Autónoma de Nuevo León" FontSize="27" FontAttributes="Bold" HorizontalOptions="Center" Style="{StaticResource ProfileNameLabel}"/>
+                <Label Text="Escuela Industrial y Preparatoria Técnica Pablo Livas" FontSize="24" HorizontalOptions="Center" HorizontalTextAlignment="Center" Style="{StaticResource ProfileNameLabel}"/>
+                <Label Text="Departamento de Tutorias" FontSize="22" HorizontalOptions="Center" Style="{StaticResource ProfileTagLabel}"/>
+                <Label Text=""/>
+                <Label Text=""/>
+                <Label Text="Ingrese matricula" HorizontalTextAlignment="Center" FontSize="22" Style="{StaticResource MainBodyLabel}"/>
+            </StackLayout>
+            
+   
+            <!--Campo Matricula-->
+            <Entry x:Name="txt_matricula"
+                   Grid.Row="2"
+                   Placeholder="Matricula"
+                   FontSize="30"
+                   HorizontalTextAlignment="Center"
+                   Keyboard="Numeric"
+                   MaxLength="8"
+                   VerticalOptions="CenterAndExpand"
+                   Margin="60,0"
+                   />
+
+            <!-- Search button -->
+            <Button Text="Buscar"
+                    x:Name="btn_Ingresar"
+                    Grid.Row="3"
+                    Margin="20,40"          
+                    VerticalOptions="End"
+                    Clicked="Btn_ingresar_Clicked"
+                    BorderRadius="25"
+                    BackgroundColor="#4B26E1"
+                    Style="{StaticResource FollowButton}"/>
+
+        </Grid>
+    </ScrollView>
+    
+   
+
+</ContentPage>

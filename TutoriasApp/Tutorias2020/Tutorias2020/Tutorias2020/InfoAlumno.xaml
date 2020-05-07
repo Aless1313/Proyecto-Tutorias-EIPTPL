@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Tutorias2020.InfoAlumno"
+             Title="Información del alumno"
+             xmlns:local="clr-namespace:Tutorias2020.Clases">
+    
+    
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" >
+            
+            <!--Pantalla que mostrará información del alumno-->
+            <StackLayout Padding="5,5,5,15" HeightRequest="70" >
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="Matricula:" Grid.Column="0" Style="{StaticResource ProfileNameLabel}" FontSize="30" VerticalOptions="Start"/>
+                    <Label x:Name="Id_Mtr" Grid.Column="1" Style="{StaticResource StatsCaptionLabel}" FontSize="30" TextColor="Black" HorizontalOptions="End" VerticalOptions="Start"/>
+                </Grid>
+            </StackLayout>
+
+
+
+            <ListView x:Name="lst_alumno" IsEnabled="False" RowHeight="280">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Padding="0,0,0,0">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="AUTO"/>
+                                        <RowDefinition Height="AUTO"/>
+                                    </Grid.RowDefinitions>
+
+                                    <!--Nombre y Foto-->
+
+                                    <StackLayout Grid.Row="0" HorizontalOptions="Center" Padding="0,0,0,15">
+                                        <Grid HorizontalOptions="Center">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="AUTO"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="190"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <StackLayout Grid.Column="0" Padding="5,5">
+                                                <Grid>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="AUTO"/>
+                                                        <RowDefinition Height="AUTO"/>
+                                                        <RowDefinition Height="AUTO"/>
+                                                        <RowDefinition Height="AUTO"/>
+                                                    </Grid.RowDefinitions>
+                                                    <Label Grid.Row="0" Text="Nombre: " Style="{StaticResource ProfileNameLabel}" FontSize="30" HorizontalOptions="Start"/>
+                                                    <Label Grid.Row="1" Text="{Binding Nombre}" FontSize="30" Style="{StaticResource StatsNumberLabel}" TextColor="Black" HorizontalOptions="Start"/>
+                                                    <Label Grid.Row="2" Text="{Binding ApellidoPaterno}" FontSize="30" Style="{StaticResource StatsNumberLabel}" TextColor="Black" HorizontalOptions="Start"/>
+                                                    <Label Grid.Row="3" Text="{Binding ApellidoMaterno}" FontSize="30" Style="{StaticResource StatsNumberLabel}" TextColor="Black" HorizontalOptions="Start"/>
+                                                </Grid>
+                                            </StackLayout>
+                                            <StackLayout Grid.Column="1">
+                                                <Image Source="aless.png" WidthRequest="120" HeightRequest="150" HorizontalOptions="End" VerticalOptions="Start"/>
+                                            </StackLayout>
+                                        </Grid>
+                                    </StackLayout>
+
+                                    <!--Grupo y Tutor-->
+                                    <StackLayout Grid.Row="1">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="AUTO"/>
+                                                <RowDefinition Height="AUTO"/>
+                                            </Grid.RowDefinitions>
+
+                                            <StackLayout Grid.Row="0">
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="AUTO"/>
+                                                        <ColumnDefinition Width="AUTO"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Label  Grid.Column="0" Text="Grupo: " FontSize="30" Style="{StaticResource ProfileNameLabel}" VerticalOptions="End"/>
+                                                    <Label x:Name="abgrp" Grid.Column="1" Text="{Binding Id_Grupo}" FontSize="30" Style="{StaticResource StatsCaptionLabel}" TextColor="Black" HorizontalOptions="End" VerticalOptions="End"/>
+                                                </Grid>
+                                            </StackLayout>
+                                            <StackLayout Grid.Row="1" Padding="0,0,0,15">
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="AUTO"/>
+                                                        <ColumnDefinition Width="AUTO"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Label Grid.Column="0" Text="Tutor: " FontSize="30" Style="{StaticResource ProfileNameLabel}" VerticalOptions="End"/>
+                                                    <Label Grid.Column="1" Text="{Binding Tutor}" FontSize="30" Style="{StaticResource StatsCaptionLabel}" TextColor="Black" HorizontalOptions="End" VerticalOptions="End"/>
+
+
+                                                </Grid>
+                                            </StackLayout>
+                                        </Grid>
+                                    </StackLayout>
+                                   
+                                </Grid>
+                                
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout Padding="0,0,0,0">
+                <Grid Padding="0,0,0,100">
+                    <local:PinchToZoomContainer>
+                        <local:PinchToZoomContainer.Content>
+                            <Image Source="horario.png"/>
+                        </local:PinchToZoomContainer.Content>
+                    </local:PinchToZoomContainer>
+                </Grid>
+            </StackLayout>
+            <Button Text="Generar Reporte" x:Name="btn_report" Clicked="Btn_report_Clicked" 
+                    Style="{StaticResource FollowButton}" VerticalOptions="End" BackgroundColor="#4B26E1"
+                    Margin="20,10"/>
+            <Label x:Name="mb" IsVisible="False"/>
+
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>

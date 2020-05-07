@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Tutorias2020.Reporte"
+             Title="Reporte">
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Padding="5,5,5,10" HeightRequest="50">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Matricula:" Grid.Column="0" Style="{StaticResource ProfileNameLabel}" FontSize="30"/>
+                    <Label x:Name="amtrr" Grid.Column="1" Style="{StaticResource StatsCaptionLabel}" FontSize="30" TextColor="Black" HorizontalOptions="End"/>
+                </Grid>
+            </StackLayout>
+            <StackLayout Padding="5,10,5,10">
+                <Label Text="Selecciona el criterio del reporte" Style="{StaticResource ProfileNameLabel}" HorizontalOptions="Start" FontSize="25"/>
+                <Picker Title="Selecciona el criterio"  x:Name="motivo" SelectedIndexChanged="Motivo_SelectedIndexChanged" FontSize="25">
+                    <Picker.Items>
+                        <x:String>F: Faltas y Fuera de clase</x:String>
+                        <x:String>R: Reglamento (Camisa, Cabello, Pearcing, etc)</x:String>
+                        <x:String>RP: Reporte de Maestro</x:String>
+                        <x:String>E: Situación Emocional</x:String>
+                        <x:String>RG: Regularizado</x:String>
+                        <x:String>S: Suspendido</x:String>
+                    </Picker.Items>
+                </Picker>
+            </StackLayout>
+
+            <StackLayout Padding="5,0,0,5">
+
+                <Label Text="Observaciones" Style="{StaticResource ProfileNameLabel}" FontSize="25" HorizontalOptions="Start"/>
+                <Editor x:Name="obs" FontSize="20" Keyboard="Chat"/>
+
+                <Label Text="Remitente" Style="{StaticResource ProfileNameLabel}" FontSize="25" HorizontalOptions="Start"/>
+                <Entry x:Name="lbl_Remitente" FontSize="20"/>
+                
+                <Label x:Name="mm" IsVisible="False"/>
+                <Label x:Name="grr" IsVisible="False"/>
+                
+                <StackLayout Padding="5,230,5,10">
+                    <Button Text="Generar Reporte" x:Name="btn_reportar" Clicked="Btn_reportar_Clicked"
+                        Style="{StaticResource FollowButton}" VerticalOptions="End" BackgroundColor="#4B26E1"
+                        Margin="20,10"
+                        />
+                </StackLayout>
+
+                
+
+            </StackLayout>
+           
+           
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
