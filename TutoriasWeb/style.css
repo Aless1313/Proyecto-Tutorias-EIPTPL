@@ -1,0 +1,167 @@
+body{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: #333333;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+p{
+  margin-bottom: 1.6em;
+}
+
+h1{
+  font-size: 2rem;
+  line-height: 1.3em;
+}
+
+
+.header{
+  background: #005098;
+  color: white;
+  height: 5rem;
+  left: 0;
+  top: 0;
+  width: 100%;
+	overflow:hidden; /* Eliminamos errores de float */
+	background:#005098;
+}
+
+.header a{
+  color: white;
+  text-decoration: none;
+}
+
+.footer{
+  background: #f2f2f2;
+  text-align: center;
+  margin-top: 6rem;
+  padding: 4rem 0;
+}
+
+.main{
+  padding-top: 2rem;
+}
+
+table
+{
+  background-color: white;
+  text-align: left;
+  width: 100%;
+  border-collapse: collapse;
+  max-width: 1600px;
+}
+
+th, td{
+  padding: 20px;
+
+}
+
+thead{
+  background-color: white;
+  border-bottom:  solid 5px gray;
+  color: black;
+}
+
+tr:nth-child(even){
+  background-color: #00579b;
+}
+
+tr:hover{
+  background-color: #4f64ff;
+  color:white;
+}
+.menu-icon{
+  display: none;
+}
+
+@media only screen and (max-width:767px){  
+  .menu-icon{
+    display: block;
+    cursor: pointer;
+    padding: 0.5rem, 1rem;
+  }
+
+  .navigation ul{
+    display:none;
+
+  }
+
+  .navigation ul.show{
+    display:block;
+
+  }
+
+  .navigation{
+    width: 100%;
+    margin-top: 1rem;
+  }
+  
+  .navigation ul li{
+    display: block;
+  }
+  
+  .navigation ul li a{
+    display: block;
+    padding: 0.5rem 0rem;
+    transition: all 0.4s linear;
+    border-radius: 5px;
+  }
+  
+  .navigation ul li a:hover{
+    background: #005098;
+  }
+  
+} 
+
+
+/*  */
+ 
+.wrapper {
+	width:100%; /* Establecemos que el ancho sera del 90% */
+	max-width:1600px; /* Aqui le decimos que el ancho máximo sera de 1000px */
+	margin:auto; /* Centramos los elementos */
+  overflow:hidden; /* Eliminamos errores de float */
+  align-content: center;
+}
+ 
+header .logo {
+	color:#f2f2f2;
+	font-size:50px;
+  float:left;
+}
+ 
+header nav {
+  float:right;
+  align-content: center;
+}
+ 
+header nav a {
+  vertical-align: bottom;
+	display:inline-block;
+	color:#fff;
+	text-decoration:none;
+	padding:1rem;
+	line-height:normal;
+	font-size:20px;
+	font-weight:bold;
+	-webkit-transition:all 500ms ease;
+	-o-transition:all 500ms ease;
+	transition:all 500ms ease;
+}
+ 
+header nav a:hover {
+	background:#4f64ff;
+	border-radius:50px;
+}
+
+@media screen and (max-width: 950px) {
+	header .logo,
+	header nav {
+    width:100%;
+    height: auto;
+		text-align:center; /*Centramos el menu y el logotipo*/
+    display: block;
+
+	}
+ 
+}

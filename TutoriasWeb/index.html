@@ -1,69 +1,94 @@
-<?php
-$conexion=mysqli_connect('fdb20.awardspace.net','3064212_tutorias','EIPTPL212','3064212_tutorias')
-?>
+<?php 
+$conexion=mysqli_connect('pdb49.awardspace.net','3064212_tutorias','EIPTPL212','3064212_tutorias');
+ ?>
+
 
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width-device-width, initial-scale=1.0">
-        <meta http.equiv="X-UA-Compatible" content="ie-edge">
-        <link rel="stylesheet" href="main.css">
-        <link rel="stylesheet" href="grid.css">
-    </head>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <title>Tutorias</title>
+    <link rel="stylesheet" href="style.css">
+    
+  </head>
 
-    <body>
-      <header id="pageHeader">
-        <h3>Escuela Industrial y Preparatoria Técnica Pablo Livas</h3>
-        <h3>Departamento de tutorias</h3>
-      </header>
-      <article id="mainArticle">
-        <br>
-                <table border="1" id="table" utf8_decode>
-                <tr  utf8_decode>
-                <td>Id_NReportes</td>
-                <td>Id_Matricula</td>
-                <td>Nombre</td>
-                <td>ApellidoPaterno</td>
-                <td>ApellidoMaterno</td>
-                <td>Id_Grupo</td>
-                <td>Tutor</td>
-                <td>Criterio</td>
-                <td>Fecha</td>
-                </tr>
-                
-                <?php
-                $sql="SELECT Reportes.Id_NReporte, Alumno.Id_Matricula, Alumno.Nombre, Alumno.ApellidoPaterno, Alumno.ApellidoMaterno, Alumno.Id_Grupo, Grupo.Tutor, Reportes.Motivo, Reportes.Fecha FROM Alumno INNER JOIN Reportes ON Alumno.Id_Matricula=Reportes.Id_Matricula, Grupo";
-                $result=mysqli_query($conexion,$sql);
-            
-                while($mostrar=mysqli_fetch_array($result)){
-                ?>   
-                <tr  $mostrar=utf8_decode($mostrar)>
-                <td><?php echo $mostrar['Id_NReporte']?></td>
-                <td><?php echo $mostrar['Id_Matricula']?></td>
-                <td><?php echo $mostrar['Nombre']?></td>
-                <td><?php echo $mostrar['ApellidoPaterno']?></td>
-                <td><?php echo $mostrar['ApellidoMaterno']?></td>
-                <td><?php echo $mostrar['Id_Grupo']?></td>
-                <td><?php echo $mostrar['Tutor']?></td>
-                <td><?php echo $mostrar['Motivo']?></td>
-                <td><?php echo $mostrar['Fecha']?></td>
-                </tr> 
-                <?php
-                }
-                ?>
-                </table>
-
-      </article>
-      <nav id="mainNav">
-        <div id="sidebar">
-          <h2>Menú</h2>
-          <ul>
-              <li>Reportes</li>
-              <li>Alumnos</li>
-              <li>Citas</li>
-          </ul>
+  <body>
+    <header class="header">
+      <div class="wrapper">
+        <div class="logo">Departamento de Tutorias
         </div>
-      </nav>
-    </body>
+
+        <nav>
+          <a href="/index.html">Reportes</a>
+          <a href="/alumnos.html">Alumnos</a>
+          <a href="/grupos.html">Grupos</a>
+          <a href="/agenda.html">Agenda</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="container">
+        <h1>Reportes actuales</h1>
+        <div id="main-container" >
+          <table border="1" >
+            <thead>
+            <tr>
+              <th>id-Reporte</th>
+              <th>Matricula</th>
+              <th>Nombre</th>
+              <th>Apellido Paterno</th>
+              <th>Apellido Materno</th>
+              <th>Grupo</th>
+              <th>Tutor</th>
+              <th>Motivo</th>
+              <th>Observación</th>
+              <th>Remitente</th>
+              <th>Fecha</th>	
+             </tr>
+            </thead>
+        
+            <?php 
+            $sql="SELECT Reportes.Id_NReporte, Alumno.Id_Matricula, Alumno.Nombre, Alumno.ApellidoPaterno, Alumno.ApellidoMaterno, Alumno.Id_Grupo, Grupo.Tutor, Reportes.Motivo, Reportes.Observacion, Reportes.Remitente, Reportes.Fecha FROM Alumno, Reportes, Grupo WHERE Alumno.Id_Matricula= Reportes.Id_Matricula";
+            $result=mysqli_query($conexion,$sql);
+        
+            while($mostrar=mysqli_fetch_array($result)){
+             ?>
+        
+            <tr>
+              <td><?php echo $mostrar['Id_NReporte'] ?></td>
+              <td><?php echo $mostrar['Id_Matricula'] ?></td>
+              <td><?php echo $mostrar['Nombre'] ?></td>
+              <td><?php echo $mostrar['ApellidoPaterno'] ?></td>
+              <td><?php echo $mostrar['ApellidoMaterno'] ?></td>
+              <td><?php echo $mostrar['Id_Grupo'] ?></td>
+              <td><?php echo $mostrar['Tutor'] ?></td>
+              <td><?php echo $mostrar['Motivo'] ?></td>
+              <td><?php echo $mostrar['Observacion'] ?></td>
+              <td><?php echo $mostrar['Remitente'] ?></td>
+              <td><?php echo $mostrar['Fecha'] ?></td>
+            </tr>
+            <?php 
+            }
+            ?>
+          </table>
+        </div>
+      </div>
+      
+
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>Universidad Autonoma de Nuevo Leon</p>
+
+        <p>Escuela Industrial y Preparatoria Técnica Pablo Livas</p>
+
+      </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="scripts.js"></script>
+  </body>
 </html>
